@@ -3,10 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+// import { Provider} from 'mobx-react'
+import { ConfigProvider } from 'antd';
+import zhCN from 'antd/es/locale/zh_CN';
 
 ReactDOM.render(
+  // <BrowserRouter>
+  // <LocaleProvider locale={zh_CN}>
+  //   {/* <Provider {...store}> */}
+  //     <App/>
+  //   {/* </Provider> */}
+  // </LocaleProvider>
+  // </BrowserRouter>,
   <React.StrictMode>
-    <App />
+    <ConfigProvider locale={zhCN}>
+      <Router>
+        <App />
+      </Router>
+    </ConfigProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

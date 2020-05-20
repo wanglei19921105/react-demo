@@ -1,7 +1,7 @@
 import React from 'react';
 import { Menu } from 'antd';
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
-import { BrowserRouter as Router, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, NavLink, Link } from 'react-router-dom';
 // 样式示例
 import Radium from 'radium';
 let styles = {
@@ -27,7 +27,6 @@ class Sider extends React.Component {
 
   render() {
     return (
-      <Router>
       <Menu
         onClick={this.handleClick}
         style={{ height: "100%" }}
@@ -46,8 +45,8 @@ class Sider extends React.Component {
           }
         >
           <Menu.ItemGroup key="g1" title="Item 1">
-            <Menu.Item key="1"><NavLink to='/Page1'>第一个页面</NavLink></Menu.Item>
-            <Menu.Item key="2"><NavLink to='/Page2'>第二个页面</NavLink></Menu.Item>
+            <Menu.Item key="1"><Link to="/Page1">Option 1</Link></Menu.Item>
+            <Menu.Item key="2"><Link to='/Page2'>Option 2</Link></Menu.Item>
           </Menu.ItemGroup>
           <Menu.ItemGroup key="g2" title="Item 2">
             <Menu.Item key="3">Option 3</Menu.Item>
@@ -71,14 +70,12 @@ class Sider extends React.Component {
             </span>
           }
         >
-          <Menu.Item key="9">Option 9</Menu.Item>
-          <Menu.Item key="10">Option 10</Menu.Item>
-          <Menu.Item key="11">Option 11</Menu.Item>
-          <Menu.Item key="12">Option 12</Menu.Item>
+          <Menu.Item key="9"><Link to='/'>主页</Link></Menu.Item>
+          <Menu.Item key="10"><Link to='/Page1'>Page1</Link></Menu.Item>
+          <Menu.Item key="11"><Link to='/Page2'>Page2</Link></Menu.Item>
+          <Menu.Item key="12"><Link to='/Page1/detail'>detail</Link></Menu.Item>
         </SubMenu>
       </Menu>
-
-      </Router>
     );
   }
 }
