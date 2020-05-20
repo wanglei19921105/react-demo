@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Layout} from 'antd';
+import RouterConfig from './router/router.js';
 import './App.css';
+import Nav from './views/nav';
+const { Header, Footer, Sider, Content } = Layout;
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <div className="App">
+    <Layout style={{minHeight: "100vh"}}>
+      <Sider><Nav/></Sider>
+      <Layout>
+        <Header style={{backgroundColor:'#fff'}} >我是头部</Header>
+        <Content><RouterConfig/></Content>
+        <Footer>Footer</Footer>
+      </Layout>
+    </Layout>
+    
+  </div>
+);
 
 export default App;
